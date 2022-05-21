@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script>
+		function datos (data) {
+			let tabla=document.createElement("table");
+			
+			let elems="";
+			for (let i in data)	elems+=`<tr><td>${i} </td><td> ${data[i]}</td></tr>`;
+
+			tabla.insertAdjacentHTML('beforeend',elems);
+			document.body.appendChild(tabla);
+			};
+		
+		window.addEventListener("load", ()=>{
+			fetch('https://jsonplaceholder.typicode.com/todos/1')
+			.then(response => response.json())
+			.then(json => datos(json))
+			.catch(error=> {
+				console.log(error)
+  				console.log('Fallo en petición Fetch:' + error.message);
+			});
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

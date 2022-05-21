@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script>
+		/*(function () {
+			alert("me ejecuto sola");
+		})();*/
+
+
+
+	/*window.addEventListener("load", function() {
+
+		});	*/
+
+
+		window.onload=function() {
+			
+			document.querySelectorAll("a").forEach( function(element, index) {
+
+				element.onclick=function(evt) {
+					evt.preventDefault();
+					/*alert(evt.target.href);*/
+					opener.location.href=evt.target.href;
+					
+				}
+				
+			});
+		}
+	</script>
+</head>
+
+<!-- <body onload=""> esto también daba error porque eliminaba el onload de arriba -->
+<body>
+	<input type="text" oncopy="return false;">
+	<textarea name="" id="" cols="30" rows="10" onpaste="return false;"></textarea>
+	<!-- href="#" no recomendado -->
+	<a href="http://www.google.es">Google</a>
+	<a href="http://www.yahoo.es">Yahoo</a>
+	<a href="http://iespuntadelverde.es">Instituto</a>
+</body>
+</html>

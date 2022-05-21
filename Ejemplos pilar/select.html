@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, td {border: 1px solid blue; border-collapse: collapse;}
+        
+    </style>
+    <script>
+        window.addEventListener("load",()=>{
+            let sel=document.createElement("select");
+            sel.id="mes";
+            sel.addEventListener("change",(evt)=>alert(evt.target.value));
+            for (i=0; i<=10; i++) {
+                let opt=`<option value=${i}>Número ${i}</option>`;
+                sel.innerHTML+=opt;
+            }
+            document.body.appendChild(sel);
+
+            let cosas=new Array("uno","casa","coche");
+            let tabla=document.createElement("table");            
+            tabla.onclick=(evt)=>{alert(evt.target.innerText)}
+            
+            cosas.forEach((value,key) => {
+                let fila=`<tr><td>${value}</td><td>${key}</td></tr>`;
+                tabla.innerHTML+=fila;
+            });
+            
+            document.body.insertBefore(tabla,document.querySelector("#mes"));
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

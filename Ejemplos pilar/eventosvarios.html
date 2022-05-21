@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<script>
+	function validar(evt) {
+		switch (evt.type) {
+			case "change":
+				// statements_1
+				//comprobar
+			case "input":
+			//esperar a que lengt sea 7 y entonces comprobar
+			if (((evt.target.value.length==9 && evt.type=="input")) || evt.type=="change") {
+				//comprobar 8 letras y número al final
+				let dnireg=/^[0-9]{8}[a-zA-Z]$/
+				if (dnireg.test(evt.target.value)) {
+					document.querySelector("span").textContent="Correcto"
+				} else {
+					document.querySelector("span").textContent="INCorrecto"
+				}
+			}
+			break;
+			case "keydwon":				
+			//cancel de los  números
+			default:
+				// statements_def
+				break;
+		}
+	}
+</script>
+</head>
+<body>
+	
+	<form>
+		<input type="text" placeholder="DNI" onchange="validar(event)" oninput="validar(event)" onkeydown="validar(event)" maxlength="9"><span></span><br>
+		<input type="text">
+	</form>
+</body>
+</html>

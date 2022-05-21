@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .miclase {color: rebeccapurple;}
+    </style>
+    <script>
+        class Persona {
+  			constructor(nombre, apellido, nif, ingreso) {
+    			this.nombre = nombre;
+    			this.apellido = apellido;
+    			this.nif = nif;
+    			this.ingreso = ingreso;
+  			}	
+        }
+        window.onload=()=>{
+        let trabajador=new Persona("Pili","Alegre","31337056N",1996);
+        let lista=document.createElement("ul");
+        lista.addEventListener("click",(evt)=>{alert(evt.target.innerText);})
+        lista.id="milista";
+        lista.classList.add("miclase");
+            let dentro=`<li>${trabajador.nombre}</li>
+            <li>${trabajador.apellido}</li>`;
+            lista.innerHTML+=dentro;
+       
+        for (let a in trabajador) {
+            let dentro=`<li>${a}=${trabajador[a]}</li>`;
+            lista.innerHTML+=dentro;
+            console.log(a,trabajador[a])
+        } 
+        document.querySelector("div").appendChild(lista);
+        
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function otra() {
+			document.querySelector("fieldset").insertAdjacentHTML('beforeend', '<input type="file" name="fichero[]" accept=".jpg,.gif,.png,.jpeg"><br>');
+		}
+		 window.addEventListener("load", function(event) {
+    		document.querySelector("a").addEventListener("click",(evt)=>{
+    			evt.preventDefault();
+    			otra();
+    		});
+    		document.querySelector("form").addEventListener("submit",(evt)=>{
+    			evt.preventDefault();
+    			//aquí se validaría el formulario
+    			if (confirm("¿Seguro que quieres subir estos ficheros?")) evt.target.submit();
+    		});
+  		});
+	</script>
+</head>
+<body>
+	<a href="#">Pulsa aquí apara poder subir más ficheros</a>
+	<form action="versubidamultiple.php" method="post" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Subir ficheros</legend>
+    	  <label>Selecciona fichero o ficheros a subir: </label><br>
+    	  <input type="file" name="fichero[]" accept=".jpg,.gif,.png,.jpeg" required><br>
+    	</fieldset>
+    	<input type="submit" value="Subir"><br>
+	</form>
+	<div id="resul"></div>
+</body>
+</html>
